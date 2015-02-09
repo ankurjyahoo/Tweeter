@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    tools:context="com.yahoo.learn.android.tweeter.activities.ComposeActivity">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ivPostUser"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvPostUserDetails"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/ivPostUser"
+        android:layout_alignBottom="@+id/ivPostUser"
+        android:layout_marginRight="2dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ff000000"
+        android:background="#ffffffff"
+    />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTweet"
+        android:layout_below="@+id/ivPostUser"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="@string/tweet"
+        android:layout_alignRight="@+id/tvPostUserDetails"
+        android:layout_alignEnd="@+id/tvPostUserDetails"
+        android:layout_marginRight="2dp"
+        android:textColor="#ff000000"
+        android:background="#ffffffff"
+    />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:id="@+id/btnCancel"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="onCancel"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_tweet"
+        android:id="@+id/btnTweet"
+        android:textColor="#ffffffff"
+        android:background="#800000ff"
+        android:onClick="onSubmit"
+        android:layout_alignTop="@+id/btnCancel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

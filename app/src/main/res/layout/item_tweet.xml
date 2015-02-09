@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:id="@+id/item_tweet">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ivUserIcon"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="2dp"
+        android:background="#ffffffff"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:id="@+id/tvMeta"
+        android:layout_toRightOf="@+id/ivUserIcon"
+        android:layout_toLeftOf="@+id/tvTimeElapsed"
+        android:hint="@string/app_name"
+        android:layout_alignTop="@id/ivUserIcon"
+        android:gravity="top|left"
+        android:background="#ffffffff"
+        android:textColor="#ff000000"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:id="@+id/tvTweet"
+        android:layout_below="@+id/tvMeta"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="2dp"
+        android:background="#ffffffff"
+        android:textColor="#ff000000"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:layout_toRightOf="@+id/ivUserIcon"
+        android:layout_toEndOf="@+id/ivUserIcon"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:id="@+id/tvTimeElapsed"
+        android:layout_alignTop="@id/ivUserIcon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="2dp"
+        android:layout_alignBottom="@+id/tvMeta"
+        android:gravity="top|right"
+        android:background="#ffffffff"
+        android:textColor="#a0000000"
+        android:textSize="12sp"
+        />
+</RelativeLayout>
