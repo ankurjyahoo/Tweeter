@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffffff"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llImage"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#ffffffff"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/ivViewUser"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="2dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/tvViewUserDetails"
+            android:layout_marginRight="2dp"
+            android:textColor="#ff000000"
+            android:background="#ffffffff"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llFollows"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#80000000"
+            android:background="#ffffffff"
+            android:layout_weight="1"
+            android:id="@+id/tvFollowers" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#80000000"
+            android:background="#ffffffff"
+            android:layout_weight="1"
+            android:id="@+id/tvFollowing" />
+
+
+
+    </LinearLayout>
+</LinearLayout>

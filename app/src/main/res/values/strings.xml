@@ -10,5 +10,6 @@
     <string name="tweet">What\'s happening?</string>
     <string name="cancel">Cancel</string>
     <string name="post_tweet">Tweet</string>
+    <string name="title_activity_profile_view">User Profile</string>
 
 </resources>

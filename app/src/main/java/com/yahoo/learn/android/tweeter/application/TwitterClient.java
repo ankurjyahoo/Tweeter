@@ -1,7 +1,6 @@
 package com.yahoo.learn.android.tweeter.application;
 
 import org.scribe.builder.api.Api;
-import org.scribe.builder.api.FlickrApi;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
@@ -9,7 +8,7 @@ import android.content.Context;
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.yahoo.learn.android.tweeter.activities.TimelineActivity;
+import com.yahoo.learn.android.tweeter.fragments.MentionsTimelineFragment;
 
 /*
  * 
@@ -75,6 +74,16 @@ public class TwitterClient extends OAuthBaseClient {
         getClient().get(apiUrl, params, handler);
     }
 
+    public void getUserShow(String screenName, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("users/show.json");
+
+        RequestParams params = new RequestParams();
+        params.put("screen_name", screenName);
+
+        // Call post if need to post
+        getClient().get(apiUrl, params, handler);
+    }
+
 
     public void postTweet(String body, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/update.json");
@@ -83,4 +92,38 @@ public class TwitterClient extends OAuthBaseClient {
         getClient().post(apiUrl, params, handler);
     }
 
+    public void getMentions(long earliestTweetID, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+
+        RequestParams params = new RequestParams();
+        params.put("count", 25);
+        if (earliestTweetID != 0) {
+            params.put("max_id", earliestTweetID - 1);
+        }
+
+        // Call post if need to post
+        getClient().get(apiUrl, params, handler);
+
+    }
+
+
+    public void getUserTimeline(String screenName, long earliestTweetID, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/user_timeline.json");
+
+        RequestParams params = new RequestParams();
+        params.put("count", 25);
+        if ((screenName != null) && (screenName.trim().length() != 0)) {
+            params.put("screen_name", screenName);
+        }
+        if (earliestTweetID != 0) {
+            params.put("max_id", earliestTweetID - 1);
+        }
+
+        // Call post if need to post
+        getClient().get(apiUrl, params, handler);
+
+    }
+
+
 }
+

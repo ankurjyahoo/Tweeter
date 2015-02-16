@@ -1,5 +1,6 @@
 package com.yahoo.learn.android.tweeter.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.yahoo.learn.android.tweeter.R;
+import com.yahoo.learn.android.tweeter.activities.HomeActivity;
 import com.yahoo.learn.android.tweeter.models.Tweet;
+import com.yahoo.learn.android.tweeter.models.TwitterUser;
 
 import org.w3c.dom.Text;
 
@@ -22,8 +25,12 @@ import java.util.List;
  *
  */
 public class TweetAdapter extends ArrayAdapter<Tweet> {
+
+    private ImageClickListener          mImageClickListener;
+
     public TweetAdapter(Context context, List<Tweet> tweets) {
         super(context, android.R.layout.simple_list_item_1, tweets);
+        mImageClickListener = new ImageClickListener();
     }
 
 
@@ -41,6 +48,8 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
             ImageView ivUserIcon = (ImageView) convertView.findViewById(R.id.ivUserIcon);
             TextView tvTime = (TextView) convertView.findViewById(R.id.tvTimeElapsed);
 
+            ivUserIcon.setOnClickListener(mImageClickListener);
+
             viewHolder = new ViewHolder(tvMeta, tvTime, tvTweet, ivUserIcon);
             convertView.setTag(viewHolder);
 
@@ -53,6 +62,7 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         viewHolder.tvTime.setText(tweet.getCreatedAt());
         viewHolder.tvTweet.setText(tweet.getBody());
         viewHolder.ivUserIcon.setImageResource(0);
+        viewHolder.ivUserIcon.setTag(tweet.getUser());
 
         // External lib call to load the photo (and manage caching)
         Picasso.with(getContext()).load(tweet.getUser().getImageUrl()).into(viewHolder.ivUserIcon);
@@ -70,6 +80,7 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         TextView tvMeta;
         TextView tvTweet;
         ImageView ivUserIcon;
+        private TwitterUser user;
 
         public ViewHolder(TextView tvMeta, TextView tvTime, TextView tvTweet, ImageView ivIcon) {
             this.tvMeta = tvMeta;
@@ -79,7 +90,20 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         }
 
 
+        public void setUser(TwitterUser user) {
+            this.user = user;
+        }
+
+        public TwitterUser getUser() {
+            return user;
+        }
     }
 
 
+    private class ImageClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            HomeActivity.launchProfileView((Activity) v.getContext(), (TwitterUser) v.getTag());
+        }
+    }
 }

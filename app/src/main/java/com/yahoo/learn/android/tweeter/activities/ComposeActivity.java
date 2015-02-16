@@ -2,8 +2,6 @@ package com.yahoo.learn.android.tweeter.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +24,7 @@ public class ComposeActivity extends ActionBarActivity {
     private ImageView       mIvUserIcon;
     private TextView        mTvUserDetails;
     private EditText        mEtTweet;
-    private TwitterClient mClient;
+    private TwitterClient   mClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +46,7 @@ public class ComposeActivity extends ActionBarActivity {
 
     private void populateScreen() {
         mIvUserIcon.setImageResource(0);
-        TwitterUser user = TimelineActivity.mUser;
+        TwitterUser user = HomeActivity.mUser;
         Picasso.with(this).load(user.getImageUrl()).into(mIvUserIcon);
 
         mTvUserDetails.setText("@" + user.getScreenName());

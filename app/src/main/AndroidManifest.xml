@@ -47,12 +47,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.TimelineActivity"
+            android:name=".activities.HomeActivity"
             android:label="@string/title_activity_timeline" >
         </activity>
         <activity
             android:name=".activities.ComposeActivity"
             android:label="@string/title_activity_compose" >
+        </activity>
+        <activity
+            android:name=".activities.ProfileViewActivity"
+            android:label="@string/title_activity_profile_view" >
         </activity>
     </application>
 
